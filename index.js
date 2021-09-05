@@ -5,7 +5,8 @@ const app = express()
 const port = 3000
 
 const routes = {
-    "posts": "/posts/"
+    "posts": "/posts/",
+    "deletePosts": "/posts/:postId",
   }
 
 app.use(bodyParser.json())
@@ -29,3 +30,5 @@ app.get("/", (request, response) => {
   })
 
   app.get(routes["posts"], db.getPosts);
+  app.delete(routes["deletePosts"], db.deletePost);
+  app.post(routes["posts"], db.createPost);
