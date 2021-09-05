@@ -1,0 +1,24 @@
+{
+  "name": "tcitinterviewbackend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/julioortizpol/tcitInterviewBackEnd.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/julioortizpol/tcitInterviewBackEnd/issues"
+  },
+  "homepage": "https://github.com/julioortizpol/tcitInterviewBackEnd#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
