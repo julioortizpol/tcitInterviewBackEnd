@@ -20,5 +20,9 @@
   "homepage": "https://github.com/julioortizpol/tcitInterviewBackEnd#readme",
   "devDependencies": {
     "nodemon": "^2.0.12"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "pg": "^8.7.1"
   }
 }
