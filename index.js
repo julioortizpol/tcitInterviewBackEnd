@@ -1,8 +1,9 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const cors = require('cors')
 const db = require("./queries");
 const app = express()
-const port = 3000
+const port = 3001
 
 const routes = {
     "posts": "/posts/",
@@ -17,6 +18,7 @@ app.use(
 )
 
 app.set("json spaces", 2);
+app.use(cors());
 
 app.get("/", (request, response) => {
     response.json({
@@ -24,6 +26,8 @@ app.get("/", (request, response) => {
       routes: routes,
     });
   });
+
+
 
   app.listen(port, () => {
     console.log(`App running on port ${port}.`)
