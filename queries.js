@@ -21,7 +21,6 @@ const getPosts = (request, response) => {
 
   const deletePost = (request, response) => {
     const {postId} = request.params
-    const {name, description} = request.body
 
     pool.query(`DELETE FROM posts WHERE postId = ${postId} RETURNING *`, (error, result) => {
       if (error) {
