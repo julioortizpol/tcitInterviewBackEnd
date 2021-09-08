@@ -21,13 +21,13 @@ const getPosts = (request, response) => {
     const {postId} = request.params
     const {name, description} = request.body
 
-    pool.query(`DELETE FROM posts WHERE postId = ${postId}`, (error, result) => {
+    pool.query(`DELETE FROM posts WHERE postId = ${postId} RETURNING *`, (error, result) => {
       if (error) {
         throw error;
       }
       response.header("Content-Type", "application/json");
       console.log(result)
-      response.status(200).json({postId, name,description});
+      response.status(200).json(result.rows);
     });
   };
 
