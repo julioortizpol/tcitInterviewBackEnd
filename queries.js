@@ -33,13 +33,18 @@ const getPosts = (request, response) => {
 
   const createPost = (request, response) => {
     const {name, description} = request.body
-    pool.query(`insert into posts(name, description) values ('${name}', '${description}')`, (error, result) => {
+    response.header("Content-Type", "application/json");
+
+    let nameLengthValidation = name.length > 50
+    if(nameLengthValidation) {
+      response.status(400).json({error:"Name cant not be greater than 50 chars"});
+      return;
+    }
+    pool.query(`insert into posts(name, description) values ('${name}', '${description}') RETURNING *`, (error, result) => {
       if (error) {
         throw error;
       }
-      response.header("Content-Type", "application/json");
-      console.log(result)
-      response.status(200).json({postid: result.insertId, name,description});
+      response.status(200).json(result.rows);
     });
   };
 
